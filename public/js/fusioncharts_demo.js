@@ -11,10 +11,9 @@ $(function(){
       $("#table-location").html(template(data));
 
       var chartProperties = {
-        "caption": "Variation of Petrol and Diesel price in Bangalore",
-        "numberprefix": "Rs",
-        "xAxisName": "Month",
-        "yAxisName": "Price"
+        "caption": "KNoT - Water Volume",
+        "xAxisName": "Timestamp",
+        "yAxisName": "Value"
       };
 
       var categoriesArray = [{

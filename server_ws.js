@@ -14,6 +14,10 @@ var meshblu = new MeshbluSocketIO({
 
 meshblu.on('ready', function() {
   console.log('Ready to rock');
+  meshblu.devices({}, function(result) {
+    console.log('devices');
+    console.log(JSON.stringify(result, null, 2));
+  });
 });
 
 meshblu.on('notReady', function(response) {

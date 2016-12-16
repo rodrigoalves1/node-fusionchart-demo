@@ -1,9 +1,13 @@
 var chartData;
+var socket = io.connect('http://localhost:3000');
+socket.on('connect', function(data) {
+    socket.emit('join', 'Hello World from client');
+});
 
-$(function(){
-  $.ajax({
 
-    url: 'http://localhost:3300/fuelPrices',
+$.ajax({
+
+    url: 'http://localhost:3000/fuelPrices',
     type: 'GET',
     success : function(data) {
       chartData = data;
@@ -35,4 +39,3 @@ $(function(){
       lineChart.render();
     }
   });
-});

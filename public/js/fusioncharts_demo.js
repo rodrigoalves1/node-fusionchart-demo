@@ -1,13 +1,12 @@
 var chartData;
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://localhost:3300');
 socket.on('connect', function(data) {
     socket.emit('join', 'Hello World from client');
 });
 
-
 $.ajax({
 
-    url: 'http://localhost:3000/fuelPrices',
+    url: 'http://localhost:3300/fuelPrices',
     type: 'GET',
     success : function(data) {
       chartData = data;
@@ -15,7 +14,7 @@ $.ajax({
       $("#table-location").html(template(data));
 
       var chartProperties = {
-        "caption": "KNoT - Water Volume",
+        "caption": "KNoT",
         "xAxisName": "Timestamp",
         "yAxisName": "Value"
       };
@@ -37,5 +36,6 @@ $.ajax({
         }
       });
       lineChart.render();
+
     }
   });
